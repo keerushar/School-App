@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class TeacherDetailsScreen extends StatelessWidget {
   final String? name;
@@ -67,14 +68,17 @@ class TeacherDetailsScreen extends StatelessWidget {
                   ),
                   Text(
                     name!,
-                    style: Theme.of(context).textTheme.headline3,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(
                     height: 6,
                   ),
                   Text(
-                   designation!,
-                    style: Theme.of(context).textTheme.headline5,
+                    designation!,
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ],
               ),
@@ -85,20 +89,17 @@ class TeacherDetailsScreen extends StatelessWidget {
                 Column(
                   children: [
                     IconButton(
-                      onPressed: () {
-                        // showModalBottomWidget(
-                        //   context,
-                        //   phoneNo!,
-                        //   emergencyNo!,
-                        //   personalNo!,
-                        // );
-                      },
-                      icon: Icon(Icons.phone)
-                    ),
-                    Text(
+                        onPressed: () {
+                          launchUrlString("tel://$phoneNo");
+                        },
+                        icon: const Icon(
+                          Icons.phone,
+                          color: Colors.green,
+                        )),
+                    const Text(
                       "Call",
                       style: TextStyle(
-                        color: Color.fromARGB(255, 151, 56, 56),
+                        color: Colors.black,
                       ),
                     )
                   ],
@@ -107,14 +108,14 @@ class TeacherDetailsScreen extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () {
-                        // launchUrlString('mailto:$email?subject=&body=');
+                        launchUrlString('mailto:$email?subject=&body=');
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.email,
                         color: Colors.blue,
                       ),
                     ),
-                    Text(
+                    const Text(
                       "Mail",
                       style: TextStyle(
                         color: Colors.blue,
@@ -124,7 +125,7 @@ class TeacherDetailsScreen extends StatelessWidget {
                 ),
               ],
             ),
-           ],
+          ],
         ),
       ),
     );
