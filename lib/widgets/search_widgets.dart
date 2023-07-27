@@ -7,9 +7,15 @@ class SearchWidget extends StatelessWidget {
   final bool? isFocus;
   final FocusNode? focusNode;
 
-  const SearchWidget({super.key, this.controller, required this.onChanged, this.text, this.isFocus, this.focusNode});
+  const SearchWidget(
+      {super.key,
+      this.controller,
+      required this.onChanged,
+      this.text,
+      this.isFocus,
+      this.focusNode});
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return TextField(
       cursorColor: Theme.of(context).primaryColor,
@@ -20,7 +26,7 @@ class SearchWidget extends StatelessWidget {
         hintStyle: TextStyle(
           color: Colors.grey.shade100,
         ),
-        hintText:"Search",
+        hintText: "Search",
         prefixIcon: const Icon(
           Icons.search,
         ),
@@ -30,7 +36,9 @@ class SearchWidget extends StatelessWidget {
                 onTap: () {
                   controller!.clear();
                   onChanged('');
-                  FocusScope.of(context).requestFocus(FocusNode());
+                  FocusScope.of(context).requestFocus(
+                    FocusNode(),
+                  );
                 },
               )
             : null,

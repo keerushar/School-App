@@ -47,11 +47,11 @@ class _TeacherPhoneScreenState extends State<TeacherPhoneScreen> {
     return Container(
       height: 129,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.blue,
       ),
-      child: Padding(
-        padding: const EdgeInsets.only(
+      child: const Padding(
+        padding: EdgeInsets.only(
           top: 10,
           left: 16,
           right: 16,
@@ -60,7 +60,12 @@ class _TeacherPhoneScreenState extends State<TeacherPhoneScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              "Teachers",
+              "Teacher Details",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             )
           ],
         ),
@@ -135,9 +140,8 @@ class _TeacherPhoneScreenState extends State<TeacherPhoneScreen> {
       employeeData = items;
     });
   }
-}
 
-Widget dashboardBody(BuildContext context, List<Employee> employeeData) {
+  Widget dashboardBody(BuildContext context, List<Employee> employeeData) {
   return Scrollbar(
     thumbVisibility: true,
     thickness: 6,
@@ -154,3 +158,6 @@ Widget dashboardBody(BuildContext context, List<Employee> employeeData) {
         }),
   );
 }
+
+}
+
